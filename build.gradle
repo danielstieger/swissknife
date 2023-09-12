@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.modellwerkstatt.swissknife'
+version '0.99'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0"
+}
+
+defaultTasks("war")
+
+war {
+    webXml = file("${customWebXmlFile}")
+
+    /* from(appClassesHome) {
+        into 'WEB-INF/classes'
+    } */
+
+    from("artefact/") {
+        into("artefact/")
+    }
+}
+
+
+task ZZ_tomcatHotDeploy(type: Copy) {
+    dependsOn(war)
+    from war.archivePath
+    into "${tomcatHome}/webapps"
+}
