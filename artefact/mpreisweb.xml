@@ -5,7 +5,7 @@
     <display-name>org.modellwerkstatt.swissknife.PicUploader</display-name>
 
     <servlet>
-        <servlet-name>PicUploader</servlet-name>
+        <servlet-name>org.modellwerkstatt.swissknife.PicUploader</servlet-name>
         <servlet-class>org.modellwerkstatt.swissknife.PicUploader</servlet-class>
 
         <init-param>

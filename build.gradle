@@ -4,7 +4,6 @@ plugins {
 }
 
 group 'org.modellwerkstatt.swissknife'
-version '0.99'
 
 repositories {
     mavenCentral()
@@ -20,12 +19,8 @@ defaultTasks("war")
 war {
     webXml = file("${customWebXmlFile}")
 
-    /* from(appClassesHome) {
-        into 'WEB-INF/classes'
-    } */
-
-    from("artefact/") {
-        into("artefact/")
+    from("artefact/static") {
+        into '/static'
     }
 }
 
